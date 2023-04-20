@@ -17,8 +17,8 @@ var err error
 type Mahasiswa struct {
 	ID                 int            `json:"id,omitempty"`
 	Nama               string         `json:"nama,omitempty"`
-	Usia               int            `json:"usia"`
-	Gender             int            `json:"gender"`
+	Usia               int            `json:"usia,omitempty"`
+	Gender             int            `json:"gender,omitempty"`
 	Tanggal_Registrasi sql.NullString `json:"tanggal_registrasi,omitempty"`
 	ID_Jurusan         int            `json:"id_jurusan,omitempty"`
 }
