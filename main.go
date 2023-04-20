@@ -295,8 +295,8 @@ func updateMahasiswa(w http.ResponseWriter, r *http.Request) {
 func deleteMahasiswa(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 
-	//Melakukan delete data mahasiswa dari tabel mahasiswa
-	stmt, err := db.Prepare("DELETE FROM Mahasiswa WHERE id = ?")
+	//Melakukan delete data mahasiswa dari tabel Mahasiswa_Hobi
+	stmt, err := db.Prepare("DELETE FROM Mahasiswa_Hobi WHERE ID_Mahasiswa = ?")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -305,8 +305,8 @@ func deleteMahasiswa(w http.ResponseWriter, r *http.Request) {
 		panic(err.Error())
 	}
 
-	//Melakukan delete data mahasiswa dari tabel Mahasiswa_Hobi
-	stmt, err = db.Prepare("DELETE FROM Mahasiswa_Hobi WHERE ID_Mahasiswa = ?")
+	//Melakukan delete data mahasiswa dari tabel mahasiswa
+	stmt, err = db.Prepare("DELETE FROM Mahasiswa WHERE id = ?")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -314,4 +314,5 @@ func deleteMahasiswa(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err.Error())
 	}
+
 }
