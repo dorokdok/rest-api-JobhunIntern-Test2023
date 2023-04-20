@@ -1,0 +1,83 @@
+Create Table and Relation
+
+CREATE TABLE Jurusan (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  Nama_Jurusan VARCHAR(255)
+);
+
+CREATE TABLE Mahasiswa (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  Nama VARCHAR(255),
+  Usia INT,
+  Gender INT,
+  Tanggal_Registrasi DATETIME,
+  ID_Jurusan INT,
+  FOREIGN KEY (ID_Jurusan) REFERENCES Jurusan(ID)
+);
+
+CREATE TABLE Hobi (
+  ID INT AUTO_INCREMENT PRIMARY KEY,
+  Nama_Hobi VARCHAR(255)
+);
+
+CREATE TABLE Mahasiswa_Hobi (
+  ID_Mahasiswa INT,
+  ID_Hobi INT,
+  PRIMARY KEY (ID_Mahasiswa, ID_Hobi),
+  FOREIGN KEY (ID_Mahasiswa) REFERENCES Mahasiswa(ID),
+  FOREIGN KEY (ID_Hobi) REFERENCES Hobi(ID)
+);
+
+Dummy Data
+
+-- Data Mahasiswa
+INSERT INTO Mahasiswa (Nama, Usia, Gender, Tanggal_Registrasi, ID_Jurusan)
+VALUES ('Andi', 20, 0, '2022-01-01 10:00:00', 1);
+
+INSERT INTO Mahasiswa (Nama, Usia, Gender, Tanggal_Registrasi, ID_Jurusan)
+VALUES ('Budi', 21, 0, '2022-01-02 11:00:00', 2);
+
+INSERT INTO Mahasiswa (Nama, Usia, Gender, Tanggal_Registrasi, ID_Jurusan)
+VALUES ('Cindy', 19, 1, '2022-01-03 12:00:00', 1);
+
+INSERT INTO Mahasiswa (Nama, Usia, Gender, Tanggal_Registrasi, ID_Jurusan)
+VALUES ('Deni', 22, 0, '2022-01-04 13:00:00', 2);
+
+
+-- Data Hobi
+INSERT INTO Hobi (Nama_Hobi)
+VALUES ('Membaca');
+
+INSERT INTO Hobi (Nama_Hobi)
+VALUES ('Menulis');
+
+INSERT INTO Hobi (Nama_Hobi)
+VALUES ('Bermain game');
+
+INSERT INTO Hobi (Nama_Hobi)
+VALUES ('Mendengarkan musik');
+
+INSERT INTO Hobi (Nama_Hobi)
+VALUES ('Bersepeda');
+
+
+-- Data Jurusan
+INSERT INTO Jurusan (Nama_Jurusan)
+VALUES ('Teknik Informatika');
+
+INSERT INTO Jurusan (Nama_Jurusan)
+VALUES ('Ekonomi');
+
+
+-- Data Mahasiswa_Hobi
+INSERT INTO Mahasiswa_Hobi (ID_Mahasiswa, ID_Hobi)
+VALUES (1, 1);
+
+INSERT INTO Mahasiswa_Hobi (ID_Mahasiswa, ID_Hobi)
+VALUES (2, 2);
+
+INSERT INTO Mahasiswa_Hobi (ID_Mahasiswa, ID_Hobi)
+VALUES (3, 1);
+
+INSERT INTO Mahasiswa_Hobi (ID_Mahasiswa, ID_Hobi)
+VALUES (4, 3);
